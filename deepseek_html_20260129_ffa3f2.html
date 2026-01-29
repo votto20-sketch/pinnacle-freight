@@ -1,0 +1,1990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinnacle Freight Solutions | Luxury SUV Airport Rides</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0A2342; /* Deep navy - professional */
+            --secondary: #1D3461; /* Dark blue */
+            --accent: #C19A6B; /* Luxury gold/bronze */
+            --accent-dark: #A67C52;
+            --light: #F8F9FA;
+            --gray: #6C757D;
+            --light-gray: #E9ECEF;
+            --success: #198754;
+            --warning: #ffc107;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-heavy: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(10, 35, 66, 0.95);
+            color: white;
+            padding: 1.2rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+
+        .logo-icon {
+            background-color: var(--accent);
+            color: var(--primary);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-main {
+            font-size: 1.8rem;
+            line-height: 1;
+        }
+
+        .logo-sub {
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: var(--accent);
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        nav a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s;
+        }
+
+        nav a:hover:after {
+            width: 100%;
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .phone-number {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--accent);
+        }
+
+        .book-now-btn {
+            background-color: var(--accent);
+            color: var(--primary);
+            padding: 0.7rem 1.8rem;
+            border-radius: 4px;
+            border: none;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .book-now-btn:hover {
+            background-color: #d4af7a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(193, 154, 107, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(rgba(10, 35, 66, 0.85), rgba(10, 35, 66, 0.9)), 
+                        url('https://images.unsplash.com/photo-1610878180933-123728745d22?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 6rem 3rem 3rem;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-text h1 span {
+            color: var(--accent);
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        .hero-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .highlight {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .highlight-icon {
+            background-color: rgba(193, 154, 107, 0.2);
+            color: var(--accent);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        /* QR Code Section */
+        .qr-section {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 3rem;
+            max-width: 400px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(193, 154, 107, 0.3);
+        }
+
+        .qr-section h3 {
+            color: white;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .qr-container {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        #qrcode {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            width: 180px;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qr-instructions {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .qr-instructions p {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .qr-features {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .qr-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .qr-feature i {
+            color: var(--accent);
+        }
+
+        /* Booking Form */
+        .booking-container {
+            flex: 1;
+            min-width: 350px;
+            background-color: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-heavy);
+            color: var(--primary);
+        }
+
+        .booking-container h2 {
+            color: var(--primary);
+            margin-bottom: 1.8rem;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .booking-container h2 i {
+            color: var(--accent);
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--secondary);
+            font-size: 0.95rem;
+        }
+
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3.2rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .input-group input:focus, .input-group select:focus {
+            border-color: var(--accent);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(193, 154, 107, 0.2);
+        }
+
+        .input-group i {
+            position: absolute;
+            left: 1.2rem;
+            top: 2.9rem;
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .input-row {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .flight-number-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .flight-number-group select {
+            flex: 1;
+        }
+
+        .flight-number-group input {
+            flex: 2;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--primary);
+            border: none;
+            padding: 1.1rem 2rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 0.5rem;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(193, 154, 107, 0.3);
+        }
+
+        /* Business Card Section */
+        .business-card-section {
+            padding: 6rem 3rem;
+            background-color: var(--light);
+            text-align: center;
+        }
+
+        .business-card-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .business-card {
+            width: 350px;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--shadow-heavy);
+            position: relative;
+            overflow: hidden;
+            color: white;
+            text-align: left;
+            transform: rotate(-2deg);
+            transition: transform 0.3s;
+        }
+
+        .business-card:hover {
+            transform: rotate(0deg) scale(1.03);
+        }
+
+        .business-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200px;
+            height: 200px;
+            background-color: rgba(193, 154, 107, 0.1);
+            border-radius: 50%;
+        }
+
+        .business-card-content {
+            position: relative;
+            z-index: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .business-card-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .business-card-logo i {
+            color: var(--accent);
+            font-size: 1.5rem;
+        }
+
+        .business-card-logo span {
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .business-card-contact {
+            margin-bottom: 1rem;
+        }
+
+        .business-card-contact div {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .business-card-contact i {
+            color: var(--accent);
+            width: 16px;
+        }
+
+        .business-card-vehicle {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 0.8rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            border-left: 3px solid var(--accent);
+        }
+
+        .business-card-vehicle strong {
+            color: var(--accent);
+        }
+
+        .business-card-download {
+            margin-top: 2rem;
+        }
+
+        .download-btn {
+            background-color: var(--accent);
+            color: var(--primary);
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .download-btn:hover {
+            background-color: #d4af7a;
+            transform: translateY(-2px);
+        }
+
+        /* Vehicle Highlight */
+        .vehicle-highlight {
+            background-color: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .vehicle-icon-large {
+            font-size: 3.5rem;
+            color: var(--accent);
+        }
+
+        .vehicle-details h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        .vehicle-details p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Payment Section */
+        .payment-section {
+            display: none;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+        }
+
+        .payment-methods {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .payment-method {
+            flex: 1;
+            min-width: 120px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .payment-method:hover {
+            border-color: var(--accent);
+        }
+
+        .payment-method.active {
+            border-color: var(--accent);
+            background-color: rgba(193, 154, 107, 0.05);
+        }
+
+        .payment-method i {
+            font-size: 2rem;
+            color: var(--gray);
+        }
+
+        .payment-method.active i {
+            color: var(--accent);
+        }
+
+        .payment-form {
+            display: none;
+            margin-top: 1.5rem;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card-input-group {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-input-group input {
+            flex: 1;
+        }
+
+        .card-input-small {
+            max-width: 100px;
+        }
+
+        .payment-success {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+            background-color: rgba(25, 135, 84, 0.1);
+            border-radius: 10px;
+            margin-top: 1.5rem;
+        }
+
+        .payment-success i {
+            font-size: 4rem;
+            color: var(--success);
+            margin-bottom: 1rem;
+        }
+
+        /* Flight Status */
+        .flight-status {
+            display: none;
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            border-left: 4px solid var(--accent);
+        }
+
+        .flight-status-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .flight-status-indicator {
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .on-time {
+            background-color: rgba(25, 135, 84, 0.1);
+            color: var(--success);
+        }
+
+        .delayed {
+            background-color: rgba(220, 53, 69, 0.1);
+            color: #dc3545;
+        }
+
+        /* Booking Details */
+        .booking-details {
+            display: none;
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-top: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            border-left: 5px solid var(--accent);
+        }
+
+        .booking-details h3 {
+            color: var(--primary);
+            margin-bottom: 1.8rem;
+            border-bottom: 2px solid var(--light-gray);
+            padding-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .driver-match {
+            background-color: #fcfaf7;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            display: none;
+            border: 1px solid rgba(193, 154, 107, 0.2);
+        }
+
+        .driver-match h4 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .driver-info {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .driver-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            border: 3px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .driver-details h5 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .driver-rating {
+            color: #ffc107;
+            margin-top: 5px;
+            font-size: 1.1rem;
+        }
+
+        .vehicle-assigned {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            border: 1px solid var(--light-gray);
+        }
+
+        .vehicle-icon {
+            font-size: 3rem;
+            color: var(--accent);
+        }
+
+        /* Luxury Fleet Section */
+        .fleet {
+            padding: 6rem 3rem;
+            background-color: var(--light);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .fleet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .vehicle-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.4s, box-shadow 0.4s;
+        }
+
+        .vehicle-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .vehicle-image {
+            height: 220px;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+            font-size: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vehicle-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .vehicle-details {
+            padding: 2rem;
+        }
+
+        .vehicle-details h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+
+        .vehicle-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.2rem 0;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .feature i {
+            color: var(--accent);
+        }
+
+        .vehicle-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-top: 1rem;
+        }
+
+        .vehicle-price span {
+            font-size: 1rem;
+            color: var(--gray);
+            font-weight: 400;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 4rem 3rem 2rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1300px;
+            margin: 0 auto;
+            gap: 3rem;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1.8rem;
+            color: var(--accent);
+            font-size: 1.3rem;
+        }
+
+        .footer-section p {
+            color: #ddd;
+            margin-bottom: 1.5rem;
+            max-width: 300px;
+        }
+
+        .footer-section a {
+            display: block;
+            color: #ddd;
+            text-decoration: none;
+            margin-bottom: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .contact-item i {
+            color: var(--accent);
+            margin-top: 3px;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .owner-note {
+            background-color: rgba(193, 154, 107, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            border-left: 4px solid var(--accent);
+        }
+
+        .owner-note h5 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1100px) {
+            .hero-content {
+                flex-direction: column;
+                gap: 3rem;
+            }
+            
+            .hero-text, .booking-container {
+                width: 100%;
+                max-width: 800px;
+            }
+            
+            .business-card-container {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem 1.5rem;
+                flex-wrap: wrap;
+            }
+            
+            nav {
+                order: 3;
+                width: 100%;
+                margin-top: 1rem;
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+            
+            nav a {
+                margin: 0;
+            }
+            
+            .header-contact {
+                margin-left: auto;
+            }
+            
+            .hero {
+                padding: 7rem 1.5rem 3rem;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+            
+            .input-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .flight-number-group {
+                flex-direction: column;
+            }
+            
+            .card-input-group {
+                flex-direction: column;
+            }
+            
+            .fleet, .footer, .business-card-section {
+                padding: 4rem 1.5rem;
+            }
+            
+            .qr-container {
+                justify-content: center;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-main {
+                font-size: 1.5rem;
+            }
+            
+            .header-contact {
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-end;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+            
+            .booking-container {
+                padding: 2rem 1.5rem;
+            }
+            
+            .business-card {
+                width: 300px;
+                height: 180px;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-crown"></i>
+            </div>
+            <div class="logo-text">
+                <div class="logo-main">Pinnacle Freight Solutions</div>
+                <div class="logo-sub">LUXURY SUV TRANSPORTATION</div>
+            </div>
+        </div>
+        
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#fleet">Our Fleet</a>
+            <a href="#business-card">Contact</a>
+            <a href="#booking">Book Now</a>
+        </nav>
+        
+        <div class="header-contact">
+            <div class="phone-number">
+                <i class="fas fa-phone"></i> (404) 831-8400
+            </div>
+            <button class="book-now-btn">Book Now</button>
+        </div>
+    </header>
+
+    <!-- Hero Section with Booking Form & QR Code -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Atlanta's Premier <span>Luxury SUV</span> Airport Service</h1>
+                <p>Experience unparalleled comfort and style with Pinnacle Freight Solutions. Our fleet of luxury SUVs and professional chauffeurs ensure a seamless, premium travel experience to and from Atlanta airports.</p>
+                
+                <div class="hero-highlights">
+                    <div class="highlight">
+                        <div class="highlight-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Safety First</h4>
+                            <p>Fully insured & background-checked drivers</p>
+                        </div>
+                    </div>
+                    <div class="highlight">
+                        <div class="highlight-icon">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <div>
+                            <h4>Flight Tracking</h4>
+                            <p>Real-time flight monitoring</p>
+                        </div>
+                    </div>
+                    <div class="highlight">
+                        <div class="highlight-icon">
+                            <i class="fas fa-qrcode"></i>
+                        </div>
+                        <div>
+                            <h4>Quick Booking</h4>
+                            <p>Scan QR code to book instantly</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- QR Code Section -->
+                <div class="qr-section">
+                    <h3><i class="fas fa-qrcode"></i> Quick Book with QR Code</h3>
+                    <div class="qr-container">
+                        <div id="qrcode"></div>
+                        <div class="qr-instructions">
+                            <p>Scan this QR code with your phone camera to:</p>
+                            <div class="qr-features">
+                                <div class="qr-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Book a ride instantly</span>
+                                </div>
+                                <div class="qr-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Save our contact info</span>
+                                </div>
+                                <div class="qr-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>View our luxury fleet</span>
+                                </div>
+                                <div class="qr-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Get special offers</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="owner-note">
+                    <h5><i class="fas fa-user-tie"></i> A Note from Victor Oduor, Owner</h5>
+                    <p>"At Pinnacle Freight Solutions, we don't just provide transportation—we deliver an exceptional experience. Every detail matters, from flight tracking to secure payments."</p>
+                </div>
+            </div>
+            
+            <div class="booking-container" id="booking">
+                <h2><i class="fas fa-calendar-check"></i> Book Your Luxury Ride</h2>
+                
+                <!-- Volkswagen Atlas Premium Highlight -->
+                <div class="vehicle-highlight">
+                    <div class="vehicle-icon-large">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="vehicle-details">
+                        <h4>Featured Vehicle: Volkswagen Atlas Premium</h4>
+                        <p>Spacious 7-passenger luxury SUV with premium amenities, perfect for family airport transfers or group travel.</p>
+                        <p><strong>Vehicle ID: 4048318400</strong></p>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="pickup">Pickup Address in Atlanta</label>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <input type="text" id="pickup" placeholder="Enter your Atlanta address">
+                </div>
+                
+                <div class="input-group">
+                    <label for="destination">Select Atlanta Airport</label>
+                    <i class="fas fa-plane"></i>
+                    <select id="destination">
+                        <option value="">Choose Airport</option>
+                        <option value="atl">Hartsfield-Jackson Atlanta International (ATL)</option>
+                        <option value="pdk">DeKalb-Peachtree Airport (PDK)</option>
+                        <option value="ftc">Fulton County Airport (FTY)</option>
+                    </select>
+                </div>
+                
+                <div class="input-group">
+                    <label>Flight Information</label>
+                    <div class="flight-number-group">
+                        <select id="airline">
+                            <option value="">Airline</option>
+                            <option value="delta">Delta</option>
+                            <option value="american">American</option>
+                            <option value="southwest">Southwest</option>
+                            <option value="united">United</option>
+                            <option value="spirit">Spirit</option>
+                        </select>
+                        <input type="text" id="flightNumber" placeholder="Flight Number (e.g., DL1234)">
+                    </div>
+                    <div class="flight-status" id="flightStatus">
+                        <div class="flight-status-info">
+                            <div>
+                                <strong>DL1234</strong> - Atlanta to New York (JFK)
+                                <div>Departure: 2:00 PM | Terminal: S</div>
+                            </div>
+                            <div class="flight-status-indicator on-time">On Time</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="input-row">
+                    <div class="input-group" style="flex: 1;">
+                        <label for="date">Date</label>
+                        <i class="fas fa-calendar-alt"></i>
+                        <input type="date" id="date">
+                    </div>
+                    <div class="input-group" style="flex: 1;">
+                        <label for="time">Time</label>
+                        <i class="fas fa-clock"></i>
+                        <input type="time" id="time">
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="suv-type">Select Luxury SUV</label>
+                    <i class="fas fa-car"></i>
+                    <select id="suv-type">
+                        <option value="volkswagen">Volkswagen Atlas Premium</option>
+                        <option value="escalade">Cadillac Escalade</option>
+                        <option value="suburban">Chevrolet Suburban</option>
+                        <option value="navigator">Lincoln Navigator</option>
+                        <option value="range-rover">Range Rover</option>
+                        <option value="mercedes-gls">Mercedes-Benz GLS</option>
+                    </select>
+                </div>
+                
+                <button class="btn-primary" id="bookRideBtn">
+                    <i class="fas fa-paper-plane"></i> Request Luxury Ride
+                </button>
+                
+                <!-- Payment Section -->
+                <div class="payment-section" id="paymentSection">
+                    <h3><i class="fas fa-credit-card"></i> Payment Method</h3>
+                    <div class="payment-methods">
+                        <div class="payment-method active" data-method="credit">
+                            <i class="fab fa-cc-visa"></i>
+                            <span>Credit Card</span>
+                        </div>
+                        <div class="payment-method" data-method="paypal">
+                            <i class="fab fa-paypal"></i>
+                            <span>PayPal</span>
+                        </div>
+                        <div class="payment-method" data-method="apple">
+                            <i class="fab fa-apple-pay"></i>
+                            <span>Apple Pay</span>
+                        </div>
+                        <div class="payment-method" data-method="cash">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <span>Cash</span>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-form" id="creditForm">
+                        <div class="input-group">
+                            <label for="cardNumber">Card Number</label>
+                            <i class="far fa-credit-card"></i>
+                            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+                        </div>
+                        <div class="card-input-group">
+                            <div class="input-group">
+                                <label for="cardExpiry">Expiry Date</label>
+                                <input type="text" id="cardExpiry" placeholder="MM/YY" class="card-input-small">
+                            </div>
+                            <div class="input-group">
+                                <label for="cardCVC">CVC</label>
+                                <input type="text" id="cardCVC" placeholder="123" maxlength="4" class="card-input-small">
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="cardName">Name on Card</label>
+                            <i class="far fa-user"></i>
+                            <input type="text" id="cardName" placeholder="John Smith">
+                        </div>
+                        <button class="btn-primary" id="processPaymentBtn">
+                            <i class="fas fa-lock"></i> Pay Securely
+                        </button>
+                    </div>
+                    
+                    <div class="payment-form" id="paypalForm">
+                        <div class="input-group">
+                            <p>You will be redirected to PayPal to complete your payment securely.</p>
+                            <button class="btn-primary" id="paypalBtn" style="background-color: #003087;">
+                                <i class="fab fa-paypal"></i> Continue with PayPal
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-form" id="appleForm">
+                        <div class="input-group">
+                            <p>Pay securely with Apple Pay using your Touch ID or Face ID.</p>
+                            <button class="btn-primary" id="applePayBtn" style="background-color: #000;">
+                                <i class="fab fa-apple-pay"></i> Pay with Apple Pay
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-form" id="cashForm">
+                        <div class="input-group">
+                            <p>Pay in cash directly to your chauffeur upon arrival. A 20% deposit is required to confirm your booking.</p>
+                            <button class="btn-primary" id="cashBtn">
+                                <i class="fas fa-check-circle"></i> Confirm Cash Payment
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-success" id="paymentSuccess">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Payment Successful!</h3>
+                        <p>Your luxury ride has been confirmed and payment processed securely.</p>
+                        <p>Confirmation details have been sent to your email.</p>
+                    </div>
+                </div>
+                
+                <div class="booking-details" id="bookingDetails">
+                    <h3><i class="fas fa-receipt"></i> Your Luxury Ride Details</h3>
+                    <div class="detail-row">
+                        <span><strong>From:</strong></span>
+                        <span id="detailPickup">Buckhead, Atlanta</span>
+                    </div>
+                    <div class="detail-row">
+                        <span><strong>To:</strong></span>
+                        <span id="detailDestination">Hartsfield-Jackson Atlanta International (ATL)</span>
+                    </div>
+                    <div class="detail-row">
+                        <span><strong>Flight:</strong></span>
+                        <span id="detailFlight">DL1234 (Delta) - On Time</span>
+                    </div>
+                    <div class="detail-row">
+                        <span><strong>Date & Time:</strong></span>
+                        <span id="detailDateTime">Tomorrow, 2:00 PM</span>
+                    </div>
+                    <div class="detail-row">
+                        <span><strong>Vehicle:</strong></span>
+                        <span id="detailVehicle">Volkswagen Atlas Premium</span>
+                    </div>
+                    <div class="detail-row">
+                        <span><strong>Vehicle ID:</strong></span>
+                        <span style="color: var(--accent); font-weight: bold;">4048318400</span>
+                    </div>
+                    <div class="detail-row">
+                        <span><strong>Service Fee:</strong></span>
+                        <span id="detailFare" style="color: var(--accent); font-weight: bold;">$115.00</span>
+                    </div>
+                    <div class="detail-row">
+                        <span><strong>Estimated Travel Time:</strong></span>
+                        <span id="detailTime">35 minutes</span>
+                    </div>
+                    
+                    <div class="driver-match" id="driverMatch">
+                        <h4><i class="fas fa-user-tie"></i> Your Chauffeur</h4>
+                        <div class="driver-info">
+                            <div class="driver-avatar">VO</div>
+                            <div class="driver-details">
+                                <h5>Victor Oduor</h5>
+                                <p>Owner & Premium Chauffeur</p>
+                                <div class="driver-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span>5.0 (Premium Service)</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="vehicle-assigned">
+                            <div class="vehicle-icon">
+                                <i class="fas fa-car"></i>
+                            </div>
+                            <div>
+                                <h5 id="assignedVehicle">Volkswagen Atlas Premium</h5>
+                                <p>Black exterior, tan leather interior | Vehicle ID: 4048318400</p>
+                                <p><strong>Features:</strong> WiFi, Bottled Water, Phone Chargers, Climate Control, 7 Passenger Seating</p>
+                            </div>
+                        </div>
+                        
+                        <button class="btn-primary" id="proceedToPaymentBtn" style="margin-top: 1.5rem;">
+                            <i class="fas fa-credit-card"></i> Proceed to Payment
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Card Section -->
+    <section class="business-card-section" id="business-card">
+        <div class="section-title">
+            <h2>Contact & Business Card</h2>
+            <p>Get in touch with Victor Oduor, owner of Pinnacle Freight Solutions. Save our digital business card for quick access to luxury transportation services.</p>
+        </div>
+        
+        <div class="business-card-container">
+            <div class="business-card">
+                <div class="business-card-content">
+                    <div>
+                        <div class="business-card-logo">
+                            <i class="fas fa-crown"></i>
+                            <span>Pinnacle Freight Solutions LLC</span>
+                        </div>
+                        
+                        <div class="business-card-contact">
+                            <div>
+                                <i class="fas fa-user-tie"></i>
+                                <span><strong>Victor Oduor</strong> - Owner & Chauffeur</span>
+                            </div>
+                            <div>
+                                <i class="fas fa-phone"></i>
+                                <span>(404) 831-8400</span>
+                            </div>
+                            <div>
+                                <i class="fas fa-envelope"></i>
+                                <span>victor@pinnaclefreightsolutions.com</span>
+                            </div>
+                            <div>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Atlanta, Georgia</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="business-card-vehicle">
+                        <strong>Featured Vehicle:</strong> Volkswagen Atlas Premium (ID: 4048318400)
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <h3 style="margin-bottom: 1.5rem;">Digital Business Card</h3>
+                <p style="margin-bottom: 1.5rem; max-width: 400px;">Scan the QR code or download our digital business card to save our contact information directly to your phone.</p>
+                
+                <div class="qr-container" style="justify-content: center; margin-bottom: 2rem;">
+                    <div id="businessCardQr"></div>
+                </div>
+                
+                <div class="business-card-download">
+                    <button class="download-btn" id="downloadCardBtn">
+                        <i class="fas fa-download"></i> Download Business Card
+                    </button>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--gray);">Save as image or add to digital wallet</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Luxury Fleet Section -->
+    <section class="fleet" id="fleet">
+        <div class="section-title">
+            <h2>Our Luxury SUV Fleet</h2>
+            <p>Experience the pinnacle of comfort and style with our exclusive selection of premium SUVs, available for your Atlanta airport transportation needs.</p>
+        </div>
+        
+        <div class="fleet-grid">
+            <div class="vehicle-card">
+                <div class="vehicle-image" style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); background-size: cover;">
+                    <!-- Volkswagen Atlas Image -->
+                </div>
+                <div class="vehicle-details">
+                    <h3>Volkswagen Atlas Premium</h3>
+                    <p>Spacious 7-passenger luxury SUV with premium amenities, perfect for family airport transfers or group travel. Vehicle ID: 4048318400</p>
+                    
+                    <div class="vehicle-features">
+                        <div class="feature">
+                            <i class="fas fa-user-friends"></i>
+                            <span>Up to 7 passengers</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-suitcase"></i>
+                            <span>8 large suitcases</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-wifi"></i>
+                            <span>Premium WiFi</span>
+                        </div>
+                    </div>
+                    
+                    <div class="vehicle-price">$115 <span>to ATL Airport</span></div>
+                </div>
+            </div>
+            
+            <div class="vehicle-card">
+                <div class="vehicle-image" style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1553440569-bcc63803a83d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); background-size: cover;">
+                    <!-- Cadillac Escalade Image -->
+                </div>
+                <div class="vehicle-details">
+                    <h3>Cadillac Escalade</h3>
+                    <p>The ultimate luxury SUV with spacious interior and premium amenities for up to 7 passengers.</p>
+                    
+                    <div class="vehicle-features">
+                        <div class="feature">
+                            <i class="fas fa-user-friends"></i>
+                            <span>Up to 7 passengers</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-suitcase"></i>
+                            <span>6 large suitcases</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-wifi"></i>
+                            <span>WiFi onboard</span>
+                        </div>
+                    </div>
+                    
+                    <div class="vehicle-price">$125 <span>to ATL Airport</span></div>
+                </div>
+            </div>
+            
+            <div class="vehicle-card">
+                <div class="vehicle-image" style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); background-size: cover;">
+                    <!-- Lincoln Navigator Image -->
+                </div>
+                <div class="vehicle-details">
+                    <h3>Lincoln Navigator</h3>
+                    <p>Sophisticated luxury with exceptional comfort and advanced technology features.</p>
+                    
+                    <div class="vehicle-features">
+                        <div class="feature">
+                            <i class="fas fa-user-friends"></i>
+                            <span>Up to 8 passengers</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-suitcase"></i>
+                            <span>7 large suitcases</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-tv"></i>
+                            <span>Entertainment system</span>
+                        </div>
+                    </div>
+                    
+                    <div class="vehicle-price">$135 <span>to ATL Airport</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Pinnacle Freight Solutions</h4>
+                <p>Atlanta's premier luxury SUV transportation service specializing in airport transfers with style, comfort, and reliability.</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Service Area:</strong><br>
+                            Atlanta Metro & Surrounding Areas
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>Phone:</strong><br>
+                            (404) 831-8400
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email:</strong><br>
+                            info@pinnaclefreightsolutions.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Our Services</h4>
+                <a href="#">Airport Transfers</a>
+                <a href="#">Corporate Transportation</a>
+                <a href="#">Event Transportation</a>
+                <a href="#">Wedding Services</a>
+                <a href="#">VIP Executive Service</a>
+                <a href="#">Hourly Chauffeur Service</a>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Company</h4>
+                <a href="#">About Us</a>
+                <a href="#">Our Fleet</a>
+                <a href="#">Chauffeurs</a>
+                <a href="#">Safety & Insurance</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Quick Contact</h4>
+                <a href="#"><i class="fas fa-qrcode"></i> Scan to Book</a>
+                <a href="#"><i class="fas fa-download"></i> Download Business Card</a>
+                <a href="#"><i class="fab fa-whatsapp"></i> WhatsApp: (404) 831-8400</a>
+                <a href="#"><i class="fas fa-car"></i> Vehicle ID: 4048318400</a>
+                <a href="#"><i class="fas fa-user-tie"></i> Owner: Victor Oduor</a>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2023 Pinnacle Freight Solutions LLC. All rights reserved. | Luxury SUV Transportation Services in Atlanta, GA | Phone: (404) 831-8400
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Generate QR Code for Quick Booking
+            const qrCodeElement = document.getElementById('qrcode');
+            const bookingUrl = window.location.origin + window.location.pathname + '#booking';
+            
+            QRCode.toCanvas(qrCodeElement, bookingUrl, {
+                width: 150,
+                height: 150,
+                colorDark: "#0A2342",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            }, function(error) {
+                if (error) console.error(error);
+            });
+            
+            // Generate QR Code for Business Card
+            const businessCardQrElement = document.getElementById('businessCardQr');
+            const contactInfo = `MECARD:N:Oduor,Victor;ORG:Pinnacle Freight Solutions LLC;TEL:+14048318400;EMAIL:victor@pinnaclefreightsolutions.com;URL:${window.location.href};NOTE:Luxury SUV Airport Transportation in Atlanta, GA;`;
+            
+            QRCode.toCanvas(businessCardQrElement, contactInfo, {
+                width: 150,
+                height: 150,
+                colorDark: "#0A2342",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            }, function(error) {
+                if (error) console.error(error);
+            });
+            
+            // Set default date to tomorrow and time to 2 hours from now
+            const today = new Date();
+            const tomorrow = new Date(today);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            
+            // Format date as YYYY-MM-DD
+            const formattedDate = tomorrow.toISOString().split('T')[0];
+            document.getElementById('date').value = formattedDate;
+            
+            // Set time to current time + 2 hours
+            const futureTime = new Date(today.getTime() + 2 * 60 * 60 * 1000);
+            const formattedTime = futureTime.toTimeString().slice(0,5);
+            document.getElementById('time').value = formattedTime;
+            
+            // Flight number input formatting
+            document.getElementById('flightNumber').addEventListener('input', function(e) {
+                let value = e.target.value.toUpperCase();
+                // Remove any non-alphanumeric characters except spaces
+                value = value.replace(/[^A-Z0-9\s]/g, '');
+                e.target.value = value;
+                
+                // Show flight status if we have airline and flight number
+                const airline = document.getElementById('airline').value;
+                if (airline && value.length >= 3) {
+                    document.getElementById('flightStatus').style.display = 'block';
+                    
+                    // Simulate flight status based on airline
+                    let flightInfo = `${value} - Atlanta to `;
+                    let status = "On Time";
+                    let statusClass = "on-time";
+                    
+                    if (airline === 'delta') {
+                        flightInfo += "New York (JFK)";
+                    } else if (airline === 'american') {
+                        flightInfo += "Chicago (ORD)";
+                    } else if (airline === 'southwest') {
+                        flightInfo += "Dallas (DFW)";
+                    } else if (airline === 'united') {
+                        flightInfo += "Denver (DEN)";
+                    } else {
+                        flightInfo += "Miami (MIA)";
+                        status = "Delayed 30 min";
+                        statusClass = "delayed";
+                    }
+                    
+                    document.getElementById('flightStatus').querySelector('strong').textContent = value;
+                    document.getElementById('flightStatus').querySelector('div').innerHTML = 
+                        `${flightInfo}<div>Departure: 2:00 PM | Terminal: ${airline === 'delta' ? 'S' : 'N'}</div>`;
+                    
+                    const statusIndicator = document.getElementById('flightStatus').querySelector('.flight-status-indicator');
+                    statusIndicator.textContent = status;
+                    statusIndicator.className = `flight-status-indicator ${statusClass}`;
+                } else {
+                    document.getElementById('flightStatus').style.display = 'none';
+                }
+            });
+            
+            // Format card number input
+            document.getElementById('cardNumber').addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+                let formatted = '';
+                
+                for (let i = 0; i < value.length; i++) {
+                    if (i > 0 && i % 4 === 0) {
+                        formatted += ' ';
+                    }
+                    formatted += value[i];
+                }
+                
+                e.target.value = formatted.substring(0, 19);
+            });
+            
+            // Format expiry date input
+            document.getElementById('cardExpiry').addEventListener('input', function(e) {
+                let value = e.target.value.replace(/[^0-9]/g, '');
+                
+                if (value.length >= 2) {
+                    value = value.substring(0, 2) + '/' + value.substring(2, 4);
+                }
+                
+                e.target.value = value.substring(0, 5);
+            });
+            
+            // Format CVC input
+            document.getElementById('cardCVC').addEventListener('input', function(e) {
+                e.target.value = e.target.value.replace(/[^0-9]/g, '').substring(0, 4);
+            });
+            
+            // Header book now button
+            document.querySelector('.book-now-btn').addEventListener('click', function() {
+                document.querySelector('.booking-container').scrollIntoView({behavior: 'smooth'});
+                document.getElementById('pickup').focus();
+            });
+            
+            // Download Business Card Button
+            document.getElementById('downloadCardBtn').addEventListener('click', function() {
+                alert("Business card downloaded! You can save this contact information to your phone.\n\nVictor Oduor\nPinnacle Freight Solutions LLC\n(404) 831-8400\nvictor@pinnaclefreightsolutions.com\n\nVolkswagen Atlas Premium (ID: 4048318400)");
+            });
+            
+            // Booking button click event
+            document.getElementById('bookRideBtn').addEventListener('click', function() {
+                const pickup = document.getElementById('pickup').value || "Buckhead, Atlanta";
+                const destination = document.getElementById('destination').value;
+                const date = document.getElementById('date').value;
+                const time = document.getElementById('time').value;
+                const suvType = document.getElementById('suv-type').value;
+                const airline = document.getElementById('airline').value;
+                const flightNumber = document.getElementById('flightNumber').value;
+                
+                // Validate required fields
+                if (!destination) {
+                    alert("Please select an Atlanta airport destination");
+                    return;
+                }
+                
+                // Convert date to readable format
+                const dateObj = new Date(date);
+                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                const formattedDateStr = dateObj.toLocaleDateString('en-US', options);
+                
+                // Update booking details
+                document.getElementById('detailPickup').textContent = pickup;
+                
+                // Set airport name and pricing based on selection
+                let airportName = "Hartsfield-Jackson Atlanta International (ATL)";
+                let fare = "$115.00";
+                let travelTime = "35 minutes";
+                
+                switch(destination) {
+                    case 'atl':
+                        airportName = "Hartsfield-Jackson Atlanta International (ATL)";
+                        fare = "$115.00";
+                        travelTime = "35 minutes";
+                        break;
+                    case 'pdk':
+                        airportName = "DeKalb-Peachtree Airport (PDK)";
+                        fare = "$85.00";
+                        travelTime = "25 minutes";
+                        break;
+                    case 'ftc':
+                        airportName = "Fulton County Airport (FTY)";
+                        fare = "$75.00";
+                        travelTime = "20 minutes";
+                        break;
+                }
+                
+                // Set vehicle details
+                let vehicleName = "Volkswagen Atlas Premium";
+                let vehicleId = "4048318400";
+                switch(suvType) {
+                    case 'volkswagen':
+                        vehicleName = "Volkswagen Atlas Premium";
+                        fare = "$115.00";
+                        break;
+                    case 'escalade':
+                        vehicleName = "Cadillac Escalade";
+                        fare = "$125.00";
+                        vehicleId = "CAD-ESC-2023";
+                        break;
+                    case 'suburban':
+                        vehicleName = "Chevrolet Suburban";
+                        fare = "$120.00";
+                        vehicleId = "CHE-SUB-2023";
+                        break;
+                    case 'navigator':
+                        vehicleName = "Lincoln Navigator";
+                        fare = "$135.00";
+                        vehicleId = "LIN-NAV-2023";
+                        break;
+                    case 'range-rover':
+                        vehicleName = "Range Rover";
+                        fare = "$155.00";
+                        vehicleId = "RAN-ROV-2023";
+                        break;
+                    case 'mercedes-gls':
+                        vehicleName = "Mercedes-Benz GLS";
+                        fare = "$145.00";
+                        vehicleId = "MER-GLS-2023";
+                        break;
+                }
+                
+                // Set flight information
+                let flightInfo = "";
+                if (airline && flightNumber) {
+                    const airlineNames = {
+                        'delta': 'Delta',
+                        'american': 'American Airlines',
+                        'southwest': 'Southwest',
+                        'united': 'United',
+                        'spirit': 'Spirit'
+                    };
+                    flightInfo = `${airlineNames[airline] || airline} ${flightNumber} - On Time`;
+                } else {
+                    flightInfo = "No flight information provided";
+                }
+                
+                document.getElementById('detailDestination').textContent = airportName;
+                document.getElementById('detailDateTime').textContent = `${formattedDateStr}, ${time}`;
+                document.getElementById('detailVehicle').textContent = vehicleName;
+                document.getElementById('detailFare').textContent = fare;
+                document.getElementById('detailTime').textContent = travelTime;
+                document.getElementById('detailFlight').textContent = flightInfo;
+                document.getElementById('assignedVehicle').textContent = vehicleName;
+                
+                // Show booking details
+                document.getElementById('bookingDetails').style.display = 'block';
+                
+                // Simulate driver matching after 1.5 seconds
+                setTimeout(function() {
+                    document.getElementById('driverMatch').style.display = 'block';
+                    // Scroll to booking details
+                    document.getElementById('bookingDetails').scrollIntoView({behavior: 'smooth', block: 'center'});
+                }, 1500);
+            });
+            
+            // Proceed to payment button
+            document.getElementById('proceedToPaymentBtn').addEventListener('click', function() {
+                document.getElementById('paymentSection').style.display = 'block';
+                document.getElementById('paymentSection').scrollIntoView({behavior: 'smooth', block: 'center'});
+            });
+            
+            // Payment method selection
+            document.querySelectorAll('.payment-method').forEach(method => {
+                method.addEventListener('click', function() {
+                    // Remove active class from all methods
+                    document.querySelectorAll('.payment-method').forEach(m => {
+                        m.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked method
+                    this.classList.add('active');
+                    
+                    // Hide all payment forms
+                    document.querySelectorAll('.payment-form').forEach(form => {
+                        form.style.display = 'none';
+                    });
+                    
+                    // Hide success message
+                    document.getElementById('paymentSuccess').style.display = 'none';
+                    
+                    // Show selected payment form
+                    const methodType = this.getAttribute('data-method');
+                    document.getElementById(`${methodType}Form`).style.display = 'block';
+                });
+            });
+            
+            // Process payment buttons
+            document.getElementById('processPaymentBtn').addEventListener('click', function() {
+                const cardNumber = document.getElementById('cardNumber').value;
+                const cardExpiry = document.getElementById('cardExpiry').value;
+                const cardCVC = document.getElementById('cardCVC').value;
+                const cardName = document.getElementById('cardName').value;
+                
+                // Simple validation
+                if (!cardNumber || !cardExpiry || !cardCVC || !cardName) {
+                    alert("Please fill in all card details");
+                    return;
+                }
+                
+                if (cardNumber.replace(/\s/g, '').length < 16) {
+                    alert("Please enter a valid 16-digit card number");
+                    return;
+                }
+                
+                // Show success message
+                document.getElementById('paymentSuccess').style.display = 'block';
+                document.querySelectorAll('.payment-form').forEach(form => {
+                    form.style.display = 'none';
+                });
+                
+                // Complete booking after 2 seconds
+                setTimeout(completeBooking, 2000);
+            });
+            
+            // Other payment method buttons
+            document.getElementById('paypalBtn').addEventListener('click', function() {
+                document.getElementById('paymentSuccess').style.display = 'block';
+                document.querySelectorAll('.payment-form').forEach(form => {
+                    form.style.display = 'none';
+                });
+                setTimeout(completeBooking, 2000);
+            });
+            
+            document.getElementById('applePayBtn').addEventListener('click', function() {
+                document.getElementById('paymentSuccess').style.display = 'block';
+                document.querySelectorAll('.payment-form').forEach(form => {
+                    form.style.display = 'none';
+                });
+                setTimeout(completeBooking, 2000);
+            });
+            
+            document.getElementById('cashBtn').addEventListener('click', function() {
+                document.getElementById('paymentSuccess').style.display = 'block';
+                document.querySelectorAll('.payment-form').forEach(form => {
+                    form.style.display = 'none';
+                });
+                setTimeout(completeBooking, 2000);
+            });
+            
+            // Complete booking function
+            function completeBooking() {
+                const vehicle = document.getElementById('detailVehicle').textContent;
+                const destination = document.getElementById('detailDestination').textContent;
+                const fare = document.getElementById('detailFare').textContent;
+                const phone = "(404) 831-8400";
+                
+                alert(`Booking Complete!\n\n${vehicle} will pick you up for your transfer to ${destination}.\n\nTotal: ${fare}\n\nConfirmation sent to your email.\n\nFor any changes, contact Victor at ${phone}`);
+                
+                // Reset form
+                document.getElementById('pickup').value = "";
+                document.getElementById('destination').value = "";
+                document.getElementById('airline').value = "";
+                document.getElementById('flightNumber').value = "";
+                document.getElementById('suv-type').value = "volkswagen";
+                document.getElementById('bookingDetails').style.display = 'none';
+                document.getElementById('driverMatch').style.display = 'none';
+                document.getElementById('paymentSection').style.display = 'none';
+                document.getElementById('flightStatus').style.display = 'none';
+                document.getElementById('paymentSuccess').style.display = 'none';
+                document.getElementById('cardNumber').value = "";
+                document.getElementById('cardExpiry').value = "";
+                document.getElementById('cardCVC').value = "";
+                document.getElementById('cardName').value = "";
+            }
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href.startsWith('#')) {
+                        e.preventDefault();
+                        const targetId = href.substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
